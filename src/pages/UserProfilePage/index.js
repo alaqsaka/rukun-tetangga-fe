@@ -27,7 +27,7 @@ const UserProfilePage = () => {
     if (user) {
       axios
         .get(
-          `http://rukuntetangga-admin.my.id/community/${user.result.community_id}`
+          `https://rukuntetangga-admin.my.id/community/${user.result.community_id}`
         )
         .then((response) => {
           setCommunityDetails(response.data.data);

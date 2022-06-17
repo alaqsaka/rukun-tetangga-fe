@@ -25,7 +25,7 @@ const KegiatanDetails = () => {
   comments = useSelector((state) => state.activities);
   useEffect(() => {
     axios
-      .get(`http://rukuntetangga-admin.my.id/posts/byId/${id}`)
+      .get(`https://rukuntetangga-admin.my.id/posts/byId/${id}`)
       .then((response) => {
         setPostObject(response.data);
         console.log(response);
@@ -39,7 +39,7 @@ const KegiatanDetails = () => {
   const addComment = () => {
     axios
       .post(
-        'http://rukuntetangga-admin.my.id/comments',
+        'https://rukuntetangga-admin.my.id/comments',
         {
           commentBody: newComment,
           PostId: id,
