@@ -1,6 +1,3 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import {
   Typography,
@@ -11,13 +8,13 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Avatar,
-} from "@mui/material";
+  Avatar
+} from '@mui/material';
 
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { get_data_warga } from "../../actions/auth";
-import moment from "moment";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { get_data_warga } from '../../actions/auth';
+import moment from 'moment';
 
 const DataWarga = () => {
   const dispatch = useDispatch();
@@ -25,7 +22,7 @@ const DataWarga = () => {
     return { name, calories, fat, carbs, protein };
   }
   const dataWarga = useSelector((state) => state.dataWargaReducer);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
 
   if (!user) {
     return <div>Login terlebih dahulu untuk mengakses halaman ini</div>;
@@ -37,43 +34,43 @@ const DataWarga = () => {
     dispatch(get_data_warga(user.result.community_id));
   }, []);
 
-  console.log("data warga dari page ", dataWarga);
+  console.log('data warga dari page ', dataWarga);
   const rows = [
     createData(
-      "Al Aqsa Krisnaya Abidin",
-      "082110106746",
-      "Blok H3/2",
-      "Pria",
-      "5 Juni 2022"
+      'Al Aqsa Krisnaya Abidin',
+      '082110106746',
+      'Blok H3/2',
+      'Pria',
+      '5 Juni 2022'
     ),
     createData(
-      "Pranarendra Dwikurnia",
-      "082110106746",
-      "Blok H3/3",
-      "Pria",
-      "5 Juni 2022"
+      'Pranarendra Dwikurnia',
+      '082110106746',
+      'Blok H3/3',
+      'Pria',
+      '5 Juni 2022'
     ),
     createData(
-      "Muhammad Helmi Azhar",
-      "082110106746",
-      "Blok H3/4",
-      "Pria",
-      "5 Juni 2022"
+      'Muhammad Helmi Azhar',
+      '082110106746',
+      'Blok H3/4',
+      'Pria',
+      '5 Juni 2022'
     ),
     createData(
-      "M Faturrahman",
-      "082110106746",
-      "Blok H3/5",
-      "Pria",
-      "5 Juni 2022"
+      'M Faturrahman',
+      '082110106746',
+      'Blok H3/5',
+      'Pria',
+      '5 Juni 2022'
     ),
     createData(
-      "Haykal Gibran",
-      "082110106746",
-      "Blok H3/6",
-      "Pria",
-      "5 Juni 2022"
-    ),
+      'Haykal Gibran',
+      '082110106746',
+      'Blok H3/6',
+      'Pria',
+      '5 Juni 2022'
+    )
   ];
 
   return (
@@ -81,13 +78,13 @@ const DataWarga = () => {
       <Typography variant="h4">Warga</Typography>
       <Typography
         variant="h6"
-        style={{ color: "#9D9D9D", marginBottom: "14px" }}
+        style={{ color: '#9D9D9D', marginBottom: '14px' }}
       >
         Warga yang terdaftar di Rukun Tetangga
       </Typography>
 
       {/* Tabel warga */}
-      {dataWarga.length == 0 ? (
+      {dataWarga.length === 0 ? (
         <div>masih loading</div>
       ) : (
         <TableContainer component={Paper}>
@@ -106,15 +103,15 @@ const DataWarga = () => {
               {dataWarga.data.map((warga) => (
                 <TableRow
                   key={warga.id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
                     <div
                       style={{
-                        display: "flex",
-                        alignContent: "center",
-                        alignItems: "center",
-                        gap: "5px",
+                        display: 'flex',
+                        alignContent: 'center',
+                        alignItems: 'center',
+                        gap: '5px'
                       }}
                     >
                       <Avatar sx={{ width: 36, height: 36 }}>
@@ -130,7 +127,7 @@ const DataWarga = () => {
                   <TableCell align="right">{warga.jenisKelamin}</TableCell>
                   <TableCell align="right">
                     {moment(warga.createdAt).format(
-                      "dddd, MMMM Do YYYY, h:mm:ss a"
+                      'dddd, MMMM Do YYYY, h:mm:ss a'
                     )}
                   </TableCell>
                 </TableRow>
