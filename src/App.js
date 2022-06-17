@@ -1,29 +1,29 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
-} from 'react-router-dom';
-import './index.css';
+  Redirect,
+} from "react-router-dom";
+import "./index.css";
 // import { ThemeProvider, createTheme, CssBaseline } from '@material-ui/core';
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 // routes
-import { AppRoutes } from './routes';
+import { AppRoutes } from "./routes";
+import { Container } from "@mui/material";
 // import layouts
-const DashboardLayout = lazy(() => import('./layouts/DashboardLayout'));
-import { Container } from '@mui/material';
+const DashboardLayout = lazy(() => import("./layouts/DashboardLayout"));
 
 function App() {
   const theme = createTheme({
     palette: {
       background: {
-        default: '#f5f5f5'
-      }
+        default: "#f5f5f5",
+      },
     },
     typography: {
-      fontFamily: 'Poppins'
-    }
+      fontFamily: "Poppins",
+    },
   });
 
   return (
@@ -42,7 +42,7 @@ function App() {
                   render={(props) => {
                     return (
                       <DashboardLayout>
-                        <Container maxWidth="xl" style={{ paddingTop: '20px' }}>
+                        <Container maxWidth="xl" style={{ paddingTop: "20px" }}>
                           <Component {...props} />
                         </Container>
                       </DashboardLayout>
